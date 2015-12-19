@@ -5,6 +5,8 @@
 #include <SFML/Window.hpp>
 #include <SFML/System/Time.hpp>
 
+// CHECKED
+
 /**
 Minuteur pour gerer l'aternance des textures dans Frame
 */
@@ -16,7 +18,11 @@ private:
 public:
 	TimeAnim(double newtimeFullDisplay);
 	bool removeTime(double timeToRemove); //return true if it reach 0
-	void restart();
+	void restart(double newTimeDisplay); // restart with the newTime for timeDisplay
+	void restart(); //restart with the actual timeDisplay
+	void softRestart(); //restart with substracting the old timeLeft
 
 	void setTime(double time);
+	double getTimeDisplay();
+	double getTimeLeft();
 };

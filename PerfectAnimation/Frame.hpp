@@ -7,6 +7,8 @@
 #include <map>
 #include <vector>
 
+// CHECKED
+
 /**
 Association d'une texture avec son temps d'affichage
 */
@@ -19,4 +21,5 @@ public:
 	Frame(sf::Texture* ptr_texture, double timeDispay);
 
 	sf::Texture* getTexturePtr();
+	double getTimeDisplay();
 };

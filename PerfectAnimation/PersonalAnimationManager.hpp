@@ -8,6 +8,8 @@
 #include <vector>
 #include "Animation.hpp"
 
+// CHECKED sauf le systeme des cles et donc des gestions des differentes
+// animations des differents etats
 
 /**
 Gere l'ensemble des animations lié a un element
@@ -30,8 +32,9 @@ public:
 	void setIsRepeated(bool state);
 	void start();
 	void stop();
+	void restart();
 	void draw(sf::RenderWindow* ptr_window);
-
+	void actualize(double time);
 
 	void setPosition(sf::Vector2f const& position);
 	void setPosition(int x, int y);

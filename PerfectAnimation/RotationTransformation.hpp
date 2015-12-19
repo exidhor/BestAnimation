@@ -12,12 +12,13 @@ class RotationTransformation : public Transformation
 {
 private:
 	float m_finalAngle;
+	float m_angleDegreeLeft;
 	bool m_endDeterminedByAngle;
 public:
-	RotationTransformation();
+	RotationTransformation(sf::Sprite* spriteTarget);
 
-	void rotateByTime(float speed, double time);
-	void rotateByAngle(float speed, float finalAngle);
+	void initRotateByTime(float speed, double time);
+	void initRotateByAngle(float speed, float finalAngle);
 
 	virtual bool actualize(double time);
 };

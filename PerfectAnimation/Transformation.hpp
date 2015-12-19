@@ -8,17 +8,22 @@
 #include <vector>
 #include "TimeAnim.hpp"
 
+/**
+Represente une animation generique (translation, rotation, translationTexture)
+*/
 class Transformation
 {
-protected
+protected:
 	bool m_isOn;
 	bool m_isInfinite;
 	TimeAnim m_time;
 	float m_speed;
+	sf::Sprite* m_spriteTarget;
 public:
-	Transformation();
+	Transformation(sf::Sprite* spriteTarget);
 	void start();
 	void stop();
+	void restart();
 
 	void setIsInfinite(bool state);
 	void setTime(double time);

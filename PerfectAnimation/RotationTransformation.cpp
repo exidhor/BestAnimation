@@ -1,25 +1,73 @@
 #include "RotationTransformation.hpp"
 
-RotationTransformation::RotationTransformation()
-	:Transformation()
+RotationTransformation::RotationTransformation(sf::Sprite* spriteTarget)
+	:Transformation(spriteTarget)
 {
 	m_finalAngle = 0;
 	m_endDeterminedByAngle = false;
 }
 
-void RotationTransformation::rotateByTime(float speed, double time)
+void RotationTransformation::initRotateByTime(float speed, double time)
 {
 	m_endDeterminedByAngle = false;
 	m_time.setTime(time);
+	m_speed = speed;
 }
 
-void RotationTransformation::rotateByAngle(float speed, float finalAngle)
+void RotationTransformation::initRotateByAngle(float speed, float finalAngle)
 {
 	m_endDeterminedByAngle = true;
 	m_finalAngle = finalAngle;
+	m_angleDegreeLeft = finalAngle;
+	m_speed = speed;
 }
 
 bool RotationTransformation::actualize(double time)
 {
-	return true;
+	if (m_isOn)
+	{
+		bool isFinish = false;
+		float angleRotation = m_speed * time;
+
+		if (m_endDeterminedByAngle)
+		{
+			m_angleDegreeLeft -= angleRotation;
+			if (m_angleDegreeLeft < 0)
+			{
+				if (m_isInfinite)
+				{
+					m_angleDegreeLeft += m_finalAngle;
+				}
+				else
+				{
+					angleRotation += m_angleDegreeLeft;
+					isFinish = true;
+					m_isOn = false;
+				}
+			}
+		}
+
+		else
+		{
+			if (m_time.removeTime(time))
+			{
+				if (!m_isInfinite)
+				{
+					angleRotation = m_speed * (time - m_time.getTimeLeft());
+					isFinish = true;
+					m_isOn = false;
+				}
+				else
+				{
+					m_time.softRestart();
+				}
+			}
+		}
+
+		m_spriteTarget->rotate(angleRotation);
+		
+		return isFinish;
+	}
+
+	return false;
 }

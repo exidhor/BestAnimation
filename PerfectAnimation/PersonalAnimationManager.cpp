@@ -28,6 +28,11 @@ void PersonalAnimationManager::stop()
 	m_isStarted = false;
 }
 
+void PersonalAnimationManager::restart()
+{
+	m_animations[m_currentKey]->restart();
+}
+
 void PersonalAnimationManager::draw(sf::RenderWindow* ptr_window)
 {
 	ptr_window->draw(m_sprite);
@@ -62,4 +67,24 @@ sf::Vector2f PersonalAnimationManager::getPosition() const
 sf::Sprite* PersonalAnimationManager::getSprite()
 {
 	return &m_sprite;
+}
+
+void PersonalAnimationManager::actualize(double time)
+{
+	if (m_isStarted)
+	{
+		TokenActualizationSituation actualizationSituation = m_animations[m_currentKey]->actualize(time);
+		if (actualizationSituation.isNewFrame)
+		{
+			m_sprite.setTexture(*getCurrentTexture());
+		}
+
+		if (actualizationSituation.isFinish)
+		{
+			if (!m_isRepeated)
+			{
+				m_isStarted = false;
+			}
+		}
+	}
 }

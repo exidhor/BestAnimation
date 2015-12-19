@@ -10,3 +10,8 @@ sf::Texture* Frame::getTexturePtr()
 {
 	return m_texture;
 }
+
+double Frame::getTimeDisplay()
+{
+	return m_timeDispay;
+}

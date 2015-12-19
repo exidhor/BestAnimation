@@ -7,19 +7,17 @@
 #include <map>
 #include <vector>
 #include "PersonalAnimationManager.hpp"
+#include "RotationTransformation.hpp"
+
+// UNCHECKED : ROTATION
 
 class DrawableObject
 {
 private:
 	PersonalAnimationManager m_personalAnimationManager;
+	RotationTransformation m_rotationManager;
 
-	bool m_rotationOn;
-	bool m_rotationIsInfinite;
-	TimeAnim m_timeRotation;
-
-	bool translationOn;
-	bool m_translationIsInfinite;
-	TimeAnim m_timeTranslation;
+	sf::Sprite* getSprite();
 
 public:
 	DrawableObject(std::vector <Animation*> animations);
@@ -28,11 +26,18 @@ public:
 
 	void setPosition(float x, float y);
 	void setPosition(sf::Vector2f & position);
+	void setOriginCenter();
 
-	void startRotation(double time, float speedPerSecond);
-	void startTranslation(double time, float speed);
+	void startRotationWithTime(float speedPerSecond, double time);
+	void startRotationWithAngle(float angle, double time);
+	void setInfiniteRotation(bool state);
+	void startTranslation(float speed, double time);
 	void startTextureRectAnimation();
 
 	void actualize(double time);
 	void draw(sf::RenderWindow* window);
+	void startAnimation();
+	void stopAnimation();
+	void restartAnimation();
+	void setRepeatAnimation(bool state);
 };

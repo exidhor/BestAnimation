@@ -11,10 +11,25 @@ bool TimeAnim::removeTime(double timeToRemove)
 	m_timeLeft -= timeToRemove;
 	if (m_timeLeft <= 0)
 	{
-		m_timeLeft = m_timeFullDisplay;
 		return true;
 	}
 	return false;
+}
+
+void TimeAnim::restart(double newTimeDisplay)
+{
+	m_timeLeft = newTimeDisplay;
+}
+
+void TimeAnim::setTime(double time)
+{
+	m_timeFullDisplay = time;
+	m_timeLeft = m_timeFullDisplay;
+}
+
+double TimeAnim::getTimeDisplay()
+{
+	return m_timeFullDisplay;
 }
 
 void TimeAnim::restart()
@@ -22,8 +37,16 @@ void TimeAnim::restart()
 	m_timeLeft = m_timeFullDisplay;
 }
 
-void TimeAnim::setTime(double time)
+void TimeAnim::softRestart()
 {
-	m_timeFullDisplay = time;
-	m_timeLeft = m_timeFullDisplay;
+	m_timeLeft += m_timeFullDisplay;
+	if (m_timeLeft <= 0)
+	{
+		std::cerr << "Error in the timer, timer set value <= 0" << std::endl;
+	}
+}
+
+double TimeAnim::getTimeLeft()
+{
+	return m_timeLeft;
 }

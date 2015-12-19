@@ -8,6 +8,9 @@
 #include <vector>
 #include "Frame.hpp"
 #include "TimeAnim.hpp"
+#include "TokenActualizationSituation.hpp"
+
+// CHECKED
 
 /**
 Tableau circulaire de Frame qui s'actualise
@@ -22,11 +25,11 @@ private:
 	TimeAnim m_timerAnim;
 
 public:
-	Animation(std::vector<Frame*> v_ptr_textures, double fullTimeDisplay);
+	Animation(std::vector<Frame*> v_ptr_textures);
 
 	void restart();
 	
-	bool actualize(double time); // return true if it return to indice 0
+	TokenActualizationSituation actualize(double time); // return true if it return to indice 0
 	sf::Texture* getActualTexture();
 	bool increaseIndice();
 };
