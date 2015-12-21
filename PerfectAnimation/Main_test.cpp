@@ -16,8 +16,8 @@
 
 int main()
 {
-	std::string titleWindow("SFML works! FPS : ");
-	sf::RenderWindow window(sf::VideoMode(200, 200), titleWindow);
+	std::string titleWindow("The Next Gen of the Animation (hope)");
+	sf::RenderWindow window(sf::VideoMode(500, 500), titleWindow);
 	window.setFramerateLimit(150);
 
 	sf::Texture* texture1 = new sf::Texture();
@@ -54,10 +54,14 @@ int main()
 	DrawableObject objectTest(animations);
 	objectTest.startAnimation();
 	objectTest.setRepeatAnimation(true);
-	objectTest.startRotationWithTime(-100, 5);
+	objectTest.startRotationWithAngle(-100, 720);
 	objectTest.setPosition(100, 100);
 	objectTest.setOriginCenter();
 	//objectTest.setInfiniteRotation(true);
+
+	sf::RectangleShape shape(sf::Vector2f(100, 200));
+	shape.setOrigin(sf::Vector2f(100, 100));
+	shape.setPosition(300, 250);
 
 	sf::Clock clock;
 	double timeLeft = 1;
@@ -67,13 +71,14 @@ int main()
 	double timeRestart = 10;
 	double timeReset = 15;
 
+	//shape.rotate(-20);
+
 	while (window.isOpen())
 	{
-		fps =(int) 1 / timeLeft;
-		//std::cout << "fps : " << fps << std::endl;
-		//titleWindow = titleWindow + std::to_string(fps);
+		fps =(int)( 1 / timeLeft);
 		window.setTitle(titleWindow);
 		sf::Event event;
+		
 		while (window.pollEvent(event))
 		{
 			if (event.type == sf::Event::Closed)
@@ -95,7 +100,7 @@ int main()
 		if (timeRestart < 0)
 		{
 			objectTest.startAnimation();
-			objectTest.startRotationWithTime(100, 5);
+			//objectTest.startRotationWithTime(100, 5);
 			timeRestart = 100000;
 		}
 		if (timeReset < 0)
@@ -108,6 +113,7 @@ int main()
 		objectTest.actualize(timeLeft);
 
 		window.clear();
+		//window.draw(shape);
 		objectTest.draw(&window);
 		window.display();
 	}

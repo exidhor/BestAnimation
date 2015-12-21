@@ -28,7 +28,7 @@ bool TranslationTransformation::actualize(double time)
 	if (m_isOn)
 	{
 		bool isFinish = false;
-		sf::Vector2f deplacement(m_speedAbs*time, m_speedOrd*time);
+		sf::Vector2f deplacement(m_speedAbs*(float)time, m_speedOrd*(float)time);
 		if (m_endDeterminedByDeplacement)
 		{
 

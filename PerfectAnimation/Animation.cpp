@@ -16,7 +16,6 @@ Animation::Animation(std::vector<Frame*> v_ptr_frames)
 
 void Animation::restart()
 {
-	std::cout << "Animation restart" << std::endl;
 	m_indiceCurrentTexture = 0;
 	m_timerAnim.restart(m_frames[0]->getTimeDisplay());
 }

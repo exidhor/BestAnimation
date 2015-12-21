@@ -21,7 +21,7 @@ class Animation
 private:
 	std::vector<Frame*> m_frames;
 
-	int m_indiceCurrentTexture;
+	unsigned int m_indiceCurrentTexture;
 	TimeAnim m_timerAnim;
 
 public:

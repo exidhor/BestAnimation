@@ -25,12 +25,12 @@ void DrawableObject::setPosition(sf::Vector2f & position)
 void DrawableObject::startRotationWithTime(float speedPerSecond, double time)
 {
 	//m_rotationManager.initRotateByTime(speedPerSecond, time);
-	m_rotationManager.start();
+	//m_rotationManager.start();
 }
 
-void DrawableObject::startRotationWithAngle(float angle, double time)
+void DrawableObject::startRotationWithAngle(float speedPerSecond, float angle)
 {
-	m_rotationManager.initRotateByAngle(angle, time);
+	m_rotationManager.initRotateByAngle(speedPerSecond, angle);
 	m_rotationManager.start();
 }
 

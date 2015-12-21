@@ -29,7 +29,7 @@ public:
 	void setOriginCenter();
 
 	void startRotationWithTime(float speedPerSecond, double time);
-	void startRotationWithAngle(float angle, double time);
+	void startRotationWithAngle(float speedPerSecond, float angle);
 	void setInfiniteRotation(bool state);
 	void startTranslation(float speed, double time);
 	void startTextureRectAnimation();

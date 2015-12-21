@@ -37,7 +37,7 @@ public:
 	void actualize(double time);
 
 	void setPosition(sf::Vector2f const& position);
-	void setPosition(int x, int y);
+	void setPosition(float abs, float ord);
 	void setStateAnimation(int key);
 	
 	sf::Vector2f getPosition() const;

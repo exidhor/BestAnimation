@@ -54,9 +54,9 @@ void PersonalAnimationManager::setPosition(sf::Vector2f const& position)
 	m_sprite.setPosition(position);
 }
 
-void PersonalAnimationManager::setPosition(int x, int y)
+void PersonalAnimationManager::setPosition(float abs, float ord)
 {
-	m_sprite.setPosition(x, y);
+	m_sprite.setPosition(abs, ord);
 }
 
 sf::Vector2f PersonalAnimationManager::getPosition() const
