@@ -75,6 +75,7 @@
     <ClCompile Include="RotationTransformation.cpp" />
     <ClCompile Include="TimeAnim.cpp" />
     <ClCompile Include="Transformaton.cpp" />
+    <ClCompile Include="TranslationTransformation.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.hpp" />
@@ -83,7 +84,9 @@
     <ClInclude Include="PersonalAnimationManager.hpp" />
     <ClInclude Include="RotationTransformation.hpp" />
     <ClInclude Include="TimeAnim.hpp" />
+    <ClInclude Include="TokenActualizationSituation.hpp" />
     <ClInclude Include="Transformation.hpp" />
+    <ClInclude Include="TranslationTransformation.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

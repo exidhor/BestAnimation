@@ -18,7 +18,7 @@ public:
 	RotationTransformation(sf::Sprite* spriteTarget);
 
 	void initRotateByTime(float speed, double time);
-	void initRotateByAngle(float speed, float finalAngle);
+	void initRotateByAngle(float speed, float finalAngle);ç
 
 	virtual bool actualize(double time);
 };

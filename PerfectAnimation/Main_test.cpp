@@ -4,7 +4,7 @@
 
 // WAS DOING : 
 // initTranslationByTime -> calcul de la vitesse en fonction du targetPoint et du temps
-// reflexion sur l'utilité de TimeAnim dans translation
+// reflexion sur l'utilité de TimeAnim dans translation <???>
 
 // TO DO :
 
