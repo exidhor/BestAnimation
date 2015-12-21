@@ -2,11 +2,16 @@
 #include <iostream>
 #include "DrawableObject.hpp"
 
+// WAS DOING : 
+// initTranslationByTime -> calcul de la vitesse en fonction du targetPoint et du temps
+// reflexion sur l'utilité de TimeAnim dans translation
+
 // TO DO :
-// animation textureRect
-// actualize dans rotation
-// implementer les rotations et les translations dans DrawableObject
+
+// refactoring pour les methodes rotate -> duplication de code
+// implementer les translations dans DrawableObject
 // animation translation -> implementer la classe TranslationTransformation
+// animation textureRect
 // implementer une superClasse qui gere plusieurs DrawableObject
 
 int main()
@@ -49,10 +54,10 @@ int main()
 	DrawableObject objectTest(animations);
 	objectTest.startAnimation();
 	objectTest.setRepeatAnimation(true);
-	objectTest.startRotationWithTime(100, 5);
+	objectTest.startRotationWithTime(-100, 5);
 	objectTest.setPosition(100, 100);
 	objectTest.setOriginCenter();
-	objectTest.setInfiniteRotation(true);
+	//objectTest.setInfiniteRotation(true);
 
 	sf::Clock clock;
 	double timeLeft = 1;
@@ -78,7 +83,6 @@ int main()
 		timeLeft = clock.getElapsedTime().asSeconds();
 		clock.restart();
 		
-		/*
 		timeStop -= timeLeft;
 		timeRestart -= timeLeft;
 		timeReset -= timeLeft;
@@ -91,6 +95,7 @@ int main()
 		if (timeRestart < 0)
 		{
 			objectTest.startAnimation();
+			objectTest.startRotationWithTime(100, 5);
 			timeRestart = 100000;
 		}
 		if (timeReset < 0)
@@ -98,7 +103,7 @@ int main()
 			objectTest.restartAnimation();
 			timeReset = 10000;
 		}
-		*/
+	
 
 		objectTest.actualize(timeLeft);
 

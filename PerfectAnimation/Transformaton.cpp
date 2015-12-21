@@ -4,7 +4,7 @@ Transformation::Transformation(sf::Sprite* spriteTarget)
 	:m_time(0)
 {
 	m_spriteTarget = spriteTarget;
-	m_speed = 0;
+	m_speedAbs = 0;
 	m_isInfinite = false;
 	m_isOn = false;
 }
@@ -31,7 +31,7 @@ void Transformation::setTime(double time)
 
 void Transformation::setSpeed(float speed)
 {
-	m_speed = speed;
+	m_speedAbs = speed;
 }
 
 void Transformation::restart()

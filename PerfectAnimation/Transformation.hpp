@@ -17,7 +17,7 @@ protected:
 	bool m_isOn;
 	bool m_isInfinite;
 	TimeAnim m_time;
-	float m_speed;
+	float m_speedAbs;
 	sf::Sprite* m_spriteTarget;
 public:
 	Transformation(sf::Sprite* spriteTarget);
