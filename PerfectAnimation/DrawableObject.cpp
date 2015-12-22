@@ -37,14 +37,12 @@ void DrawableObject::startRotationWithAngle(float speedPerSecond, float angle)
 
 void DrawableObject::startTranslationWithSpeed(double time, sf::Vector2f const& speedPerSecond)
 {
-	// TO DO
 	m_translationManager.initTranslationBySpeed(time, speedPerSecond);
 	m_translationManager.start();
 }
 
 void DrawableObject::startTranslationWithTargetPoint(double time, sf::Vector2f const& targetPoint)
 {
-	// TO DO
 	m_translationManager.initTranslationByTargetPoint(time, targetPoint);
 	m_translationManager.start();
 }

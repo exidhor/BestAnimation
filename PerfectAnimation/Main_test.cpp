@@ -2,15 +2,11 @@
 #include <iostream>
 #include "DrawableObject.hpp"
 
-// WAS DOING : 
-// Le temps est a inclure dans les Translations, pour que l'on puisse bouger le sprite
-// et que la translation continue
+// WAS DOING :
 
 // TO DO :
 
 // Pouvoir mettre une file de transformation
-// implementer les translations dans DrawableObject
-// animation translation -> implementer la classe TranslationTransformation
 // animation textureRect
 // implementer une superClasse qui gere plusieurs DrawableObject
 
