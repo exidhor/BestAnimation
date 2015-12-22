@@ -6,9 +6,13 @@
 
 // TO DO :
 
-// Pouvoir mettre une file de transformation
+// faire un template d'une file d'attente avec son start, repeat(possibilité de mettre un nombre), etc
+// Pouvoir mettre une file de transformation -> travaille sur le polymorphisme dans les Transformations
 // animation textureRect
 // implementer une superClasse qui gere plusieurs DrawableObject
+// gerer le chargement des images
+// voir si l'on met une lignes d'image qui represente l'animation dans une seule texture ou dans plusieurs
+// comment on charge ca : avec un image.loadFromFile puis un texture.loadFromImage pour le cas de plusieurs textures
 
 int main()
 {

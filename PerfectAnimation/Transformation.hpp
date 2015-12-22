@@ -4,8 +4,6 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/System/Time.hpp>
-#include <map>
-#include <vector>
 #include "TimeAnim.hpp"
 
 /**
@@ -20,11 +18,12 @@ protected:
 	sf::Sprite* m_spriteTarget;
 public:
 	Transformation(sf::Sprite* spriteTarget);
-	void start();
+
+	virtual void start();
+	virtual bool actualize(double time) = 0;
+
 	void stop();
 
 	void setIsInfinite(bool state);
 	void setSpeed(float speed);
-	
-	virtual bool actualize(double time) = 0;
 };

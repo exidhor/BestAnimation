@@ -4,8 +4,6 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/System/Time.hpp>
-#include <map>
-#include <vector>
 #include "PersonalAnimationManager.hpp"
 #include "RotationTransformation.hpp"
 #include "TranslationTransformation.hpp"

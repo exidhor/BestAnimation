@@ -1,8 +1,7 @@
+#pragma once
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/System/Time.hpp>
-#include <map>
-#include <vector>
 #include "Transformation.hpp"
 #include "TimeAnim.hpp"
 
@@ -16,8 +15,8 @@ private:
 public:
 	TranslationTransformation(sf::Sprite* spriteTarget);
 
+	virtual bool actualize(double time);
+
 	void initTranslationByTargetPoint(double time, sf::Vector2f const& targetPoint);
 	void initTranslationBySpeed(double time, sf::Vector2f const& speedPerSecond);
-
-	virtual bool actualize(double time);
 };

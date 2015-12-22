@@ -4,8 +4,6 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/System/Time.hpp>
-#include <map>
-#include <vector>
 #include "Transformation.hpp"
 
 class RotationTransformation : public Transformation
@@ -16,9 +14,9 @@ private:
 public:
 	RotationTransformation(sf::Sprite* spriteTarget);
 
+	virtual bool actualize(double time);
+
 	void initRotateByTime(float speed, double time);
 	void initRotateByAngle(float speed, float finalAngle);
 	bool endOfRotation(float & angleRotation, bool speedUpperThanZero);
-
-	virtual bool actualize(double time);
 };
