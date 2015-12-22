@@ -4,6 +4,9 @@
 
 // WAS DOING :
 
+// animation textureRect : implementation du code dans le .cpp
+// reflexion sur le stockage de la taille de la texture ainsi que la facon de charger les textures
+
 // TO DO :
 
 // faire un template d'une file d'attente avec son start, repeat(possibilité de mettre un nombre), etc
