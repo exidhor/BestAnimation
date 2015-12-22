@@ -70,6 +70,7 @@
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="DrawableObject.cpp" />
     <ClCompile Include="Frame.cpp" />
+    <ClCompile Include="LinearTransformation.cpp" />
     <ClCompile Include="Main_test.cpp" />
     <ClCompile Include="PersonalAnimationManager.cpp" />
     <ClCompile Include="RotationTransformation.cpp" />
@@ -81,7 +82,9 @@
     <ClInclude Include="Animation.hpp" />
     <ClInclude Include="DrawableObject.hpp" />
     <ClInclude Include="Frame.hpp" />
+    <ClInclude Include="LinearTransformation.hpp" />
     <ClInclude Include="PersonalAnimationManager.hpp" />
+    <ClInclude Include="ResizeRectTransformation.hpp" />
     <ClInclude Include="RotationTransformation.hpp" />
     <ClInclude Include="TimeAnim.hpp" />
     <ClInclude Include="TokenActualizationSituation.hpp" />

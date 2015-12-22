@@ -54,10 +54,11 @@ int main()
 	DrawableObject objectTest(animations);
 	objectTest.startAnimation();
 	objectTest.setRepeatAnimation(true);
-	//objectTest.startTranslationWithTargetPoint(2, sf::Vector2f(-50, 50));
-	
-	objectTest.startTranslationWithSpeed(3, sf::Vector2f(100, 0));
 	objectTest.setPosition(100, 100);
+	objectTest.startTranslationWithSpeed(2, sf::Vector2f(150, 50));
+	
+	objectTest.startTranslationWithTargetPoint(3, sf::Vector2f(100, 50));
+	
 
 	sf::RectangleShape shape(sf::Vector2f(100, 200));
 	shape.setOrigin(sf::Vector2f(100, 100));
