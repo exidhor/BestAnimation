@@ -16,17 +16,14 @@ class Transformation
 protected:
 	bool m_isOn;
 	bool m_isInfinite;
-	TimeAnim m_time;
 	float m_speedAbs;
 	sf::Sprite* m_spriteTarget;
 public:
 	Transformation(sf::Sprite* spriteTarget);
 	void start();
 	void stop();
-	void restart();
 
 	void setIsInfinite(bool state);
-	void setTime(double time);
 	void setSpeed(float speed);
 	
 	virtual bool actualize(double time) = 0;

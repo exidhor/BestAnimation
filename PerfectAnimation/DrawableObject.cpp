@@ -2,7 +2,8 @@
 
 DrawableObject::DrawableObject(std::vector <Animation*> animations)
 	:m_personalAnimationManager(animations),
-	m_rotationManager(getSprite())
+	m_rotationManager(getSprite()),
+	m_translationManager(getSprite())
 {
 
 }
@@ -24,8 +25,8 @@ void DrawableObject::setPosition(sf::Vector2f & position)
 
 void DrawableObject::startRotationWithTime(float speedPerSecond, double time)
 {
-	//m_rotationManager.initRotateByTime(speedPerSecond, time);
-	//m_rotationManager.start();
+	m_rotationManager.initRotateByTime(speedPerSecond, time);
+	m_rotationManager.start();
 }
 
 void DrawableObject::startRotationWithAngle(float speedPerSecond, float angle)
@@ -34,9 +35,18 @@ void DrawableObject::startRotationWithAngle(float speedPerSecond, float angle)
 	m_rotationManager.start();
 }
 
-void DrawableObject::startTranslation(float speed, double time)
+void DrawableObject::startTranslationWithSpeed(double time, sf::Vector2f const& speedPerSecond)
 {
 	// TO DO
+	m_translationManager.initTranslationBySpeed(time, speedPerSecond);
+	m_translationManager.start();
+}
+
+void DrawableObject::startTranslationWithTargetPoint(double time, sf::Vector2f const& targetPoint)
+{
+	// TO DO
+	m_translationManager.initTranslationByTargetPoint(time, targetPoint);
+	m_translationManager.start();
 }
 
 void DrawableObject::draw(sf::RenderWindow* window)
@@ -49,6 +59,7 @@ void DrawableObject::actualize(double time)
 {
 	m_personalAnimationManager.actualize(time);
 	m_rotationManager.actualize(time);
+	m_translationManager.actualize(time);
 }
 
 void DrawableObject::startAnimation()

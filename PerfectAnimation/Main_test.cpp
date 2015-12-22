@@ -3,12 +3,12 @@
 #include "DrawableObject.hpp"
 
 // WAS DOING : 
-// initTranslationByTime -> calcul de la vitesse en fonction du targetPoint et du temps
-// reflexion sur l'utilité de TimeAnim dans translation <???>
+// Le temps est a inclure dans les Translations, pour que l'on puisse bouger le sprite
+// et que la translation continue
 
 // TO DO :
 
-// refactoring pour les methodes rotate -> duplication de code
+// Pouvoir mettre une file de transformation
 // implementer les translations dans DrawableObject
 // animation translation -> implementer la classe TranslationTransformation
 // animation textureRect
@@ -54,10 +54,9 @@ int main()
 	DrawableObject objectTest(animations);
 	objectTest.startAnimation();
 	objectTest.setRepeatAnimation(true);
-	objectTest.startRotationWithAngle(100, -720);
+	//objectTest.startTranslationWithTargetPoint(3, sf::Vector2f(300, 300));
 	objectTest.setPosition(100, 100);
-	objectTest.setOriginCenter();
-	//objectTest.setInfiniteRotation(true);
+	objectTest.startTranslationWithSpeed(3, sf::Vector2f(25, 100));
 
 	sf::RectangleShape shape(sf::Vector2f(100, 200));
 	shape.setOrigin(sf::Vector2f(100, 100));
@@ -71,12 +70,8 @@ int main()
 	double timeRestart = 10;
 	double timeReset = 15;
 
-	//shape.rotate(-20);
-
 	while (window.isOpen())
 	{
-		fps =(int)( 1 / timeLeft);
-		window.setTitle(titleWindow);
 		sf::Event event;
 		
 		while (window.pollEvent(event))
@@ -88,6 +83,10 @@ int main()
 		timeLeft = clock.getElapsedTime().asSeconds();
 		clock.restart();
 		
+
+		// TEST ROTATION 
+
+		/*
 		timeStop -= timeLeft;
 		timeRestart -= timeLeft;
 		timeReset -= timeLeft;
@@ -108,12 +107,11 @@ int main()
 			objectTest.restartAnimation();
 			timeReset = 10000;
 		}
-	
+		*/
 
 		objectTest.actualize(timeLeft);
 
 		window.clear();
-		//window.draw(shape);
 		objectTest.draw(&window);
 		window.display();
 	}

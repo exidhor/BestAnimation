@@ -1,7 +1,6 @@
 #include "Transformation.hpp"
 
 Transformation::Transformation(sf::Sprite* spriteTarget)
-	:m_time(0)
 {
 	m_spriteTarget = spriteTarget;
 	m_speedAbs = 0;
@@ -24,17 +23,7 @@ void Transformation::setIsInfinite(bool state)
 	m_isInfinite = state;
 }
 
-void Transformation::setTime(double time)
-{
-	m_time.setTime(time);
-}
-
 void Transformation::setSpeed(float speed)
 {
 	m_speedAbs = speed;
-}
-
-void Transformation::restart()
-{
-	m_time.restart(m_time.getTimeDisplay());
 }
