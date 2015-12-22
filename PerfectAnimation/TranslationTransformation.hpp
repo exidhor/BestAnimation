@@ -4,12 +4,15 @@
 #include <map>
 #include <vector>
 #include "Transformation.hpp"
+#include "TimeAnim.hpp"
 
 class TranslationTransformation : public Transformation
 {
 private:
 	sf::Vector2f m_targetPoint;
 	float m_speedOrd;
+	TimeAnim m_time;
+	bool m_isDeterminedByTime;
 public:
 	TranslationTransformation(sf::Sprite* spriteTarget);
 
