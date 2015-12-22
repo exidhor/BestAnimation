@@ -4,6 +4,7 @@ RotationTransformation::RotationTransformation(sf::Sprite* spriteTarget)
 	:Transformation(spriteTarget)
 {
 	m_finalAngle = 0;
+	m_angleDegreeAdvancement = 0;
 }
 
 
@@ -15,8 +16,15 @@ void RotationTransformation::initRotateByTime(float speed, double time)
 
 void RotationTransformation::initRotateByAngle(float speed, float finalAngle)
 {
+	if (finalAngle < 0)
+	{
+		int endRotation = - (int)finalAngle % 360;
+		float floatPart = finalAngle - (int)finalAngle;
+		int nbOfTurn = finalAngle / -360;
+		finalAngle = nbOfTurn * 360 + endRotation + floatPart;
+	}
 	m_finalAngle = finalAngle;
-	m_angleDegreeLeft = finalAngle;
+	m_angleDegreeAdvancement = 0;
 	m_speedAbs = speed;
 }
 
@@ -27,12 +35,12 @@ bool RotationTransformation::actualize(double time)
 		bool isFinish = false;
 		float angleRotation = m_speedAbs * (float)time;
 
-		m_angleDegreeLeft -= angleRotation;
-		if (m_angleDegreeLeft < 0 && m_speedAbs > 0)
+		m_angleDegreeAdvancement += angleRotation;
+		if (m_speedAbs > 0 && m_angleDegreeAdvancement >= m_finalAngle)
 		{
 			isFinish = endOfRotation(angleRotation, true);
 		}
-		else if (m_angleDegreeLeft >= 2*m_finalAngle && m_speedAbs < 0)
+		else if (m_speedAbs < 0 && m_angleDegreeAdvancement <= -m_finalAngle)
 		{
 			isFinish = endOfRotation(angleRotation, false);
 		}
@@ -50,16 +58,23 @@ bool RotationTransformation::endOfRotation(float & angleRotation, bool speedUppe
 	{
 		if (speedUpperThanZero)
 		{
-			m_angleDegreeLeft += m_finalAngle;
+			m_angleDegreeAdvancement -= m_finalAngle;
 		}
 		else
 		{
-			m_angleDegreeLeft -= m_finalAngle;
+			m_angleDegreeAdvancement += m_finalAngle;
 		}
 		return false;
 	}
 
-	angleRotation -= m_angleDegreeLeft;
+	if (speedUpperThanZero)
+	{
+		angleRotation -= m_angleDegreeAdvancement - m_finalAngle;
+	}
+	else
+	{
+		angleRotation -= m_finalAngle - m_angleDegreeAdvancement;
+	}
 	m_isOn = false;
 	
 	return true;

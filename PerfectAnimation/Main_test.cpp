@@ -54,7 +54,7 @@ int main()
 	DrawableObject objectTest(animations);
 	objectTest.startAnimation();
 	objectTest.setRepeatAnimation(true);
-	objectTest.startRotationWithAngle(-100, 720);
+	objectTest.startRotationWithAngle(100, -720);
 	objectTest.setPosition(100, 100);
 	objectTest.setOriginCenter();
 	//objectTest.setInfiniteRotation(true);

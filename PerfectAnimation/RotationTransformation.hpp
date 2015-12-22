@@ -12,7 +12,7 @@ class RotationTransformation : public Transformation
 {
 private:
 	float m_finalAngle;
-	float m_angleDegreeLeft;
+	float m_angleDegreeAdvancement;
 public:
 	RotationTransformation(sf::Sprite* spriteTarget);
 
