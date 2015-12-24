@@ -73,6 +73,7 @@
     <ClCompile Include="LinearTransformation.cpp" />
     <ClCompile Include="Main_test.cpp" />
     <ClCompile Include="PersonalAnimationManager.cpp" />
+    <ClCompile Include="ResizeRectTransformation.cpp" />
     <ClCompile Include="RotationTransformation.cpp" />
     <ClCompile Include="TimeAnim.cpp" />
     <ClCompile Include="Transformaton.cpp" />

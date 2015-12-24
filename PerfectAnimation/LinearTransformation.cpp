@@ -10,7 +10,6 @@ LinearTransformation::LinearTransformation(sf::Sprite* targetSprite)
 
 bool LinearTransformation::actualize(double time)
 {
-	// TODO
 	if (m_isOn)
 	{
 		bool isFinish = false;

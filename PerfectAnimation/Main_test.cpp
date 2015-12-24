@@ -2,10 +2,21 @@
 #include <iostream>
 #include "DrawableObject.hpp"
 
-// WAS DOING :
+// ---------------------------------------------------------------------------------------------------------------------------
+
+// WAITING : 
 
 // animation textureRect : implementation du code dans le .cpp
 // reflexion sur le stockage de la taille de la texture ainsi que la facon de charger les textures
+
+// ---------------------------------------------------------------------------------------------------------------------------
+
+// WAS DOING :
+
+// Reflexion sur le chargement des textures :
+//		-> Faire 3 chargements de textures differents (une texture dans chaque sf::texture 
+
+// ---------------------------------------------------------------------------------------------------------------------------
 
 // TO DO :
 
@@ -17,12 +28,58 @@
 // voir si l'on met une lignes d'image qui represente l'animation dans une seule texture ou dans plusieurs
 // comment on charge ca : avec un image.loadFromFile puis un texture.loadFromImage pour le cas de plusieurs textures
 
+// ---------------------------------------------------------------------------------------------------------------------------
+
 int main()
 {
 	std::string titleWindow("The Next Gen of the Animation (hope)");
 	sf::RenderWindow window(sf::VideoMode(500, 500), titleWindow);
 	window.setFramerateLimit(150);
 
+	sf::Clock clock;
+	double timeLeft = 0;
+	clock.restart();
+
+	/*
+	// 1ere technique : image -> loadFromImage
+	sf::Image imageTile;
+	if (!imageTile.loadFromFile("img/tile.png"))
+	{
+		return -1;
+	}
+	timeLeft = clock.getElapsedTime().asSeconds();
+	std::cout << "Time left : " << timeLeft << std::endl;
+	std::vector <sf::Texture*> textures;
+
+	for (int i = 0; i < 8; i++)
+	{
+		for (int j = 0; j < 12; j++)
+		{
+			sf::Texture* texture = new sf::Texture();
+			if (!texture->loadFromImage(imageTile, sf::IntRect(j*32, i*48, 32, 48)))
+			{
+				return -1;
+			}
+			textures.push_back(texture);
+		}
+	}
+
+	timeLeft = clock.getElapsedTime().asSeconds();
+	std::cout << "Time left : " << timeLeft << std::endl;
+
+	for (int i = 0; i < 96; i++)
+	{
+		sf::Texture texture;
+		if (!texture.loadFromFile("img/tile.png"))
+		{
+			return -1;
+		}
+	}*/
+
+	timeLeft = clock.getElapsedTime().asSeconds();
+	std::cout << "Time left : " << timeLeft << std::endl;
+
+	
 	sf::Texture* texture1 = new sf::Texture();
 	if (!texture1->loadFromFile("img/feu_1.png"))
 	{
@@ -58,23 +115,22 @@ int main()
 	objectTest.startAnimation();
 	objectTest.setRepeatAnimation(true);
 	objectTest.setPosition(100, 100);
-	objectTest.startTranslationWithSpeed(2, sf::Vector2f(150, 50));
-	
-	objectTest.startTranslationWithTargetPoint(3, sf::Vector2f(100, 50));
+	objectTest.startTranslationWithSpeed(2, sf::Vector2f(100, 0));
+	objectTest.startRotationWithTime(100, 2);
+
+	//objectTest.startTranslationWithTargetPoint(3, sf::Vector2f(100, 50));
 	
 
 	sf::RectangleShape shape(sf::Vector2f(100, 200));
 	shape.setOrigin(sf::Vector2f(100, 100));
 	shape.setPosition(300, 250);
 
-	sf::Clock clock;
-	double timeLeft = 1;
 	int fps = 0;
 
 	double timeStop = 5;
 	double timeRestart = 10;
 	double timeReset = 15;
-
+	
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -84,11 +140,11 @@ int main()
 			if (event.type == sf::Event::Closed)
 				window.close();
 		}
-
+		
 		timeLeft = clock.getElapsedTime().asSeconds();
 		clock.restart();
 		
-
+		
 		// TEST ROTATION 
 
 		/*
@@ -113,12 +169,13 @@ int main()
 			timeReset = 10000;
 		}
 		*/
-
+		
 		objectTest.actualize(timeLeft);
 
 		window.clear();
 		objectTest.draw(&window);
 		window.display();
+	
 	}
 
 	return 0;

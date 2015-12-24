@@ -5,7 +5,7 @@ DrawableObject::DrawableObject(std::vector <Animation*> animations)
 	m_rotationManager(getSprite()),
 	m_translationManager(getSprite())
 {
-
+	setOriginCenter();
 }
 
 sf::Vector2f DrawableObject::getPosition() const

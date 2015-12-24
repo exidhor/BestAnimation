@@ -9,6 +9,7 @@ ResizeRectTransformation::ResizeRectTransformation(sf::Sprite* targetSprite)
 sf::Vector2f ResizeRectTransformation::getPositionForTransformation()
 {
 	// TODO
+	return sf::Vector2f();
 }
 
 void ResizeRectTransformation::placeSpriteToTheEndOfTransformation()
