@@ -51,6 +51,9 @@
       <AdditionalLibraryDirectories>C:\Program Files %28x86%29\Microsoft Visual Studio 12.0\SFML-2.3\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <ResourceCompile>
+      <AdditionalIncludeDirectories>C:\Users\JP\Documents\Visual Studio 2013\Projects\BestAnimation\PerfectAnimation\img;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -80,19 +83,26 @@
     <ClCompile Include="TranslationTransformation.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Animation.hpp" />
     <ClInclude Include="AnimationPerFrame.hpp" />
-    <ClInclude Include="AnimationPerOneCompleteTile.hpp" />
     <ClInclude Include="AnimationPerTile.hpp" />
     <ClInclude Include="DrawableObject.hpp" />
     <ClInclude Include="Frame.hpp" />
     <ClInclude Include="LinearTransformation.hpp" />
     <ClInclude Include="PersonalAnimationManager.hpp" />
     <ClInclude Include="ResizeRectTransformation.hpp" />
+    <ClInclude Include="resource.hpp" />
     <ClInclude Include="RotationTransformation.hpp" />
+    <ClInclude Include="TextureLoader.hpp" />
     <ClInclude Include="TimeAnim.hpp" />
     <ClInclude Include="TokenActualizationSituation.hpp" />
     <ClInclude Include="Transformation.hpp" />
     <ClInclude Include="TranslationTransformation.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="img\feu_1.png" />
+    <Image Include="img\feu_2.png" />
+    <Image Include="img\feu_3.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

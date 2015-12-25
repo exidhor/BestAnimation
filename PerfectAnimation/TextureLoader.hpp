@@ -4,11 +4,10 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/System/Time.hpp>
-#include "Animation.hpp"
 
-class AnimationPerOneCompleteTile : public Animation
+class TextureLoader
 {
-protected:
+private:
 	// TO DO
 public:
 	// TO DO
