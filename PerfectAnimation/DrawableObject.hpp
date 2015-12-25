@@ -20,7 +20,7 @@ private:
 	sf::Sprite* getSprite();
 
 public:
-	DrawableObject(std::vector <Animation*> animations);
+	DrawableObject(std::vector <AnimationPerFrame*> animations);
 
 	sf::Vector2f getPosition() const;
 

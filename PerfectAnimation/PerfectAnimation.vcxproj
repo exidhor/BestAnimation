@@ -80,7 +80,9 @@
     <ClCompile Include="TranslationTransformation.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Animation.hpp" />
+    <ClInclude Include="AnimationPerFrame.hpp" />
+    <ClInclude Include="AnimationPerOneCompleteTile.hpp" />
+    <ClInclude Include="AnimationPerTile.hpp" />
     <ClInclude Include="DrawableObject.hpp" />
     <ClInclude Include="Frame.hpp" />
     <ClInclude Include="LinearTransformation.hpp" />

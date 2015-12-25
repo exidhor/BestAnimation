@@ -1,6 +1,6 @@
 #include "PersonalAnimationManager.hpp"
 
-PersonalAnimationManager::PersonalAnimationManager(std::vector <Animation*> animations)
+PersonalAnimationManager::PersonalAnimationManager(std::vector <AnimationPerFrame*> animations)
 {
 	if (animations.size() == 0)
 	{

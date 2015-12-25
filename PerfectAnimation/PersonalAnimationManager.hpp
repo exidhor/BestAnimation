@@ -5,7 +5,7 @@
 #include <SFML/Window.hpp>
 #include <SFML/System/Time.hpp>
 #include <vector>
-#include "Animation.hpp"
+#include "AnimationPerFrame.hpp"
 
 // CHECKED sauf le systeme des cles et donc des gestions des differentes
 // animations des differents etats
@@ -19,14 +19,14 @@ manipuler a l'aide d'une enum faite pour chaque element
 class PersonalAnimationManager
 {
 private:
-	std::vector<Animation*> m_animations;
+	std::vector<AnimationPerFrame*> m_animations;
 	bool m_isRepeated;
 	bool m_isStarted;
 	sf::Sprite m_sprite;
 	int m_currentKey; //attend une enum 
 
 public:
-	PersonalAnimationManager(std::vector <Animation*> animations);
+	PersonalAnimationManager(std::vector <AnimationPerFrame*> animations);
 
 	void setIsRepeated(bool state);
 	void start();

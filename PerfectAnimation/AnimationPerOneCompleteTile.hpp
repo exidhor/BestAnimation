@@ -4,10 +4,12 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/System/Time.hpp>
+#include "Animation.hpp"
 
-class Animation
+class AnimationPerOneCompleteTile : public Animation
 {
 protected:
+	// TO DO
 public:
-
+	// TO DO
 };

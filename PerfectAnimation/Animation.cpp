@@ -1,9 +1,9 @@
-#include "Animation.hpp"
+#include "AnimationPerFrame.hpp"
 
 /**
 Cree un animation a partir d'un tableau de textures
 */
-Animation::Animation(std::vector<Frame*> v_ptr_frames)
+AnimationPerFrame::AnimationPerFrame(std::vector<Frame*> v_ptr_frames)
 	:m_timerAnim(v_ptr_frames[0]->getTimeDisplay())
 {
 	if (v_ptr_frames.size() <= 0)
@@ -14,13 +14,13 @@ Animation::Animation(std::vector<Frame*> v_ptr_frames)
 	m_frames = v_ptr_frames;
 }
 
-void Animation::restart()
+void AnimationPerFrame::restart()
 {
 	m_indiceCurrentTexture = 0;
 	m_timerAnim.restart(m_frames[0]->getTimeDisplay());
 }
 
-TokenActualizationSituation Animation::actualize(double time)
+TokenActualizationSituation AnimationPerFrame::actualize(double time)
 {
 	if (m_timerAnim.removeTime(time))
 	{
@@ -29,7 +29,7 @@ TokenActualizationSituation Animation::actualize(double time)
 	return TokenActualizationSituation(false, false);
 }
 
-bool Animation::increaseIndice()
+bool AnimationPerFrame::increaseIndice()
 {
 	m_indiceCurrentTexture++;
 	if (m_indiceCurrentTexture >= m_frames.size())
@@ -41,7 +41,7 @@ bool Animation::increaseIndice()
 	return false;
 }
 
-sf::Texture* Animation::getActualTexture()
+sf::Texture* AnimationPerFrame::getActualTexture()
 {
 	return m_frames[m_indiceCurrentTexture]->getTexturePtr();
 }

@@ -106,9 +106,9 @@ int main()
 	frames.push_back(frame2);
 	frames.push_back(frame3);
 
-	Animation* animation = new Animation(frames);
+	AnimationPerFrame* animation = new AnimationPerFrame(frames);
 
-	std::vector <Animation*> animations;
+	std::vector <AnimationPerFrame*> animations;
 	animations.push_back(animation);
 
 	DrawableObject objectTest(animations);

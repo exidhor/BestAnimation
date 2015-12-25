@@ -1,6 +1,6 @@
 #include "DrawableObject.hpp"
 
-DrawableObject::DrawableObject(std::vector <Animation*> animations)
+DrawableObject::DrawableObject(std::vector <AnimationPerFrame*> animations)
 	:m_personalAnimationManager(animations),
 	m_rotationManager(getSprite()),
 	m_translationManager(getSprite())
