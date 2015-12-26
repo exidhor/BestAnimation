@@ -13,6 +13,9 @@
 
 // WAS DOING :
 
+// Tile : retourner un IntRect pour le textureRect
+// implementer le polymorphisme pour que les animPerFrame et celle avec les tiles soient facilement interchangeable
+
 // CHargement des Textures
 // Reflexion sur le chargement des textures :
 //		-> Faire 3 chargements de textures differents (une texture dans chaque sf::texture 

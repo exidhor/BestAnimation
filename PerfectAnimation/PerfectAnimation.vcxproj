@@ -91,7 +91,6 @@
     <ClInclude Include="LinearTransformation.hpp" />
     <ClInclude Include="PersonalAnimationManager.hpp" />
     <ClInclude Include="ResizeRectTransformation.hpp" />
-    <ClInclude Include="resource.hpp" />
     <ClInclude Include="RotationTransformation.hpp" />
     <ClInclude Include="TextureLoader.hpp" />
     <ClInclude Include="TimeAnim.hpp" />
