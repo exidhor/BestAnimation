@@ -20,4 +20,5 @@ public:
 	void goToTheLine(unsigned int indexCulumn);
 
 	sf::Texture* getTexture();
+	sf::IntRect getTextureRect();
 };

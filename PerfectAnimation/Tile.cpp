@@ -24,3 +24,13 @@ void Tile::goToTheLine(unsigned int indexCulumn)
 {
 	m_indexCurrentTextureRect.y = indexCulumn;
 }
+
+sf::Texture* Tile::getTexture()
+{
+
+}
+
+sf::IntRect Tile::getTextureRect()
+{
+
+}

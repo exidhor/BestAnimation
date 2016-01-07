@@ -78,6 +78,7 @@
     <ClCompile Include="PersonalAnimationManager.cpp" />
     <ClCompile Include="ResizeRectTransformation.cpp" />
     <ClCompile Include="RotationTransformation.cpp" />
+    <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TimeAnim.cpp" />
     <ClCompile Include="Transformaton.cpp" />
     <ClCompile Include="TranslationTransformation.cpp" />
@@ -93,6 +94,7 @@
     <ClInclude Include="ResizeRectTransformation.hpp" />
     <ClInclude Include="RotationTransformation.hpp" />
     <ClInclude Include="TextureLoader.hpp" />
+    <ClInclude Include="Tile.hpp" />
     <ClInclude Include="TimeAnim.hpp" />
     <ClInclude Include="TokenActualizationSituation.hpp" />
     <ClInclude Include="Transformation.hpp" />
