@@ -8,7 +8,6 @@
 #include "Frame.hpp"
 #include "TimeAnim.hpp"
 #include "TokenActualizationSituation.hpp"
-#include "Animation.hpp"
 
 // CHECKED
 
@@ -16,7 +15,7 @@
 Tableau circulaire de Frame qui s'actualise
 represente un etat (ex : Personnage qui cours, personnage a l'arret, ...)
 */
-class AnimationPerFrame : public Animation
+class AnimationPerFrame
 {
 private:
 	std::vector<Frame*> m_frames;

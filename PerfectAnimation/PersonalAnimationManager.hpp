@@ -28,13 +28,13 @@ private:
 public:
 	PersonalAnimationManager(std::vector <AnimationPerFrame*> animations);
 
-	void setIsRepeated(bool state);
 	void start();
 	void stop();
 	void restart();
 	void draw(sf::RenderWindow* ptr_window);
 	void actualize(double time);
 
+	void setIsRepeated(bool state);
 	void setPosition(sf::Vector2f const& position);
 	void setPosition(float abs, float ord);
 	void setStateAnimation(int key);

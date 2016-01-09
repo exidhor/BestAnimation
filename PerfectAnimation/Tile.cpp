@@ -20,17 +20,23 @@ bool Tile::goToTheNextFrame()
 	return false;
 }
 
-void Tile::goToTheLine(unsigned int indexCulumn)
+void Tile::goToTheLine(unsigned int indexLine)
 {
-	m_indexCurrentTextureRect.y = indexCulumn;
+	m_indexCurrentTextureRect.x = 0;
+	m_indexCurrentTextureRect.y = indexLine;
 }
 
-sf::Texture* Tile::getTexture()
+sf::Texture* Tile::getTextureTile()
 {
-
+	return m_tile;
 }
 
 sf::IntRect Tile::getTextureRect()
 {
-
+	return sf::IntRect(
+		m_indexCurrentTextureRect.x * m_sizeOfOneTexture.x,
+		m_indexCurrentTextureRect.y * m_sizeOfOneTexture.y,
+		m_sizeOfOneTexture.x,
+		m_sizeOfOneTexture.y
+		);
 }

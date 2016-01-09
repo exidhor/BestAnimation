@@ -6,19 +6,14 @@
 
 // WAITING : 
 
-// animation textureRect : implementation du code dans le .cpp
-// reflexion sur le stockage de la taille de la texture ainsi que la facon de charger les textures
-
 // ---------------------------------------------------------------------------------------------------------------------------
 
 // WAS DOING :
 
-// Tile : retourner un IntRect pour le textureRect
 // implementer le polymorphisme pour que les animPerFrame et celle avec les tiles soient facilement interchangeable
-
-// CHargement des Textures
-// Reflexion sur le chargement des textures :
-//		-> Faire 3 chargements de textures differents (une texture dans chaque sf::texture 
+// AnimationMapped -> type (classe abstraite) qui sera present dans l'AnimationManager
+// implementer les methodes polymorphes pour que le manager ne se preocupe pas du type de stockage
+// terminer et nettoyer les anciennes classes, voir supprimer les inutiles (#Animation)
 
 // ---------------------------------------------------------------------------------------------------------------------------
 

@@ -4,10 +4,12 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/System/Time.hpp>
+#include "AnimationMapped.hpp"
 
-class Animation
+class AnimationArray : public AnimationMapped
 {
 protected:
+
 public:
 
 };
