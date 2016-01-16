@@ -5,6 +5,8 @@
 #include <SFML/Window.hpp>
 #include <SFML/System/Time.hpp>
 #include <vector>
+#include "AnimationPerFrame.hpp"
+#include "PersonalAnimationManager.hpp"
 
 // CHECKED sauf le systeme des cles et donc des gestions des differentes
 // animations des differents etats
@@ -15,29 +17,31 @@ Permet de lancer ou de boucler l'animation
 Les differentes anim sont stockés dans un vector qu'il faut
 manipuler a l'aide d'une enum faite pour chaque element
 */
-class PersonalAnimationManager
+class FrameAnimationManager : public PersonalAnimationManager
 {
-protected: 
-	sf::Sprite m_sprite;
-	bool m_isStarted;
+private:
+	std::vector<AnimationPerFrame*> m_animations;
 	bool m_isRepeated;
+	bool m_isStarted;
+	sf::Sprite m_sprite;
+	int m_currentKey; //attend une enum 
+
 public:
-	PersonalAnimationManager();
-	
-	virtual void restart();
-	virtual void actualize(double time) = 0;
-	virtual void setStateAnimation(int key) = 0;
-	virtual sf::Texture* getCurrentTexture() = 0;
+	FrameAnimationManager(std::vector <AnimationPerFrame*> animations);
 
 	void start();
 	void stop();
+	void restart();
 	void draw(sf::RenderWindow* ptr_window);
+	void actualize(double time);
 
 	void setIsRepeated(bool state);
 	void setPosition(sf::Vector2f const& position);
 	void setPosition(float abs, float ord);
-	
-	sf::Vector2f getPosition();
+	void setStateAnimation(int key);
+
+	sf::Vector2f getPosition() const;
+	sf::Texture* getCurrentTexture();
 
 	sf::Sprite* getSprite();
 };

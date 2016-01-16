@@ -5,19 +5,23 @@
 #include <SFML/Window.hpp>
 #include <SFML/System/Time.hpp>
 #include "AnimationMapped.hpp"
-#include "AnimationPerFrame.hpp"
+#include "TimeAnim.hpp"
+#include "Tile.hpp"
 
-class AnimationArray : public AnimationMapped
+class AnimationPerTile : public AnimationMapped
 {
 protected:
-	std::vector <AnimationPerFrame*> m_animationArray;
-	int m_indexLine;
+	Tile* m_tile;
+	sf::Vector2i m_indexCurrentTextureRect;
+	TimeAnim m_timerAnim;
 
 public:
-	AnimationArray(sf::Sprite* spriteTarget, std::vector<AnimationPerFrame*> animationArray);
+	AnimationPerTile(sf::Sprite* spriteTarget, Tile* tile);
 
 	virtual void restart();
 	virtual void setTexture(int indexLine);
-	virtual bool actualize(double time);
 	virtual void setActualTexture();
+
+	double getTime(sf::Vector2i const& coord);
+	double getActualTime();
 };

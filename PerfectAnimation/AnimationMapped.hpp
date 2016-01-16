@@ -4,17 +4,21 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/System/Time.hpp>
+#include "TokenActualizationSituation.hpp"
+#include "TimeAnim.hpp"
 
 class AnimationMapped
 {
 protected:
 	sf::Sprite* m_spriteTarget;
-	sf::Vector2i m_indexCurrentTextureRect; // x -> abs, y -> ord
+	TimeAnim m_timerAnim;
 
 public:
-	AnimationMapped(sf::Sprite *spriteTarget);
+	AnimationMapped(sf::Sprite *spriteTarget, double firstTime);
 
 	virtual void restart() = 0;
 	virtual void setTexture(int indexLine) = 0;
-	virtual void actualize() = 0;
+	virtual void setActualTexture() = 0;
+	
+	virtual bool actualize(double time);
 };

@@ -40,3 +40,18 @@ sf::IntRect Tile::getTextureRect()
 		m_sizeOfOneTexture.y
 		);
 }
+
+sf::IntRect Tile::getTextureRect(sf::Vector2i coord)
+{
+	return sf::IntRect(
+		coord.x * m_sizeOfOneTexture.x,
+		coord.y * m_sizeOfOneTexture.y,
+		m_sizeOfOneTexture.x,
+		m_sizeOfOneTexture.y
+		);
+}
+
+std::vector <std::vector <double> > Tile::getTime()
+{
+	return m_timeDisplay;
+}

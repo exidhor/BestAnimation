@@ -4,9 +4,8 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/System/Time.hpp>
-#include "AnimationMapped.hpp"
 
-class Tile : public AnimationMapped
+class Tile
 {
 private:
 	sf::Vector2f m_sizeOfOneTexture;
@@ -22,4 +21,6 @@ public:
 
 	sf::Texture* getTextureTile();
 	sf::IntRect getTextureRect();
+	sf::IntRect getTextureRect(sf::Vector2i coord);
+	std::vector <std::vector <double> > getTime();
 };
