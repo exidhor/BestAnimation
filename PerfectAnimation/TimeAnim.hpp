@@ -16,7 +16,7 @@ private:
 	double m_timeFullDisplay;
 	double m_timeLeft;
 public:
-	TimeAnim(double newtimeFullDisplay);
+	TimeAnim(double timeFullDisplay);
 	bool removeTime(double timeToRemove); //return true if it reach 0
 	void restart(double newTimeDisplay); // restart with the newTime for timeDisplay
 	void restart(); //restart with the actual timeDisplay

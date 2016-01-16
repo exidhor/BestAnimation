@@ -1,26 +1,26 @@
 #include "DrawableObject.hpp"
 
-DrawableObject::DrawableObject(std::vector <AnimationPerFrame*> animations)
-	:m_personalAnimationManager(animations),
+DrawableObject::DrawableObject(Animation *animation)
+	:m_personalAnimationManager(animation),
 	m_rotationManager(getSprite()),
 	m_translationManager(getSprite())
 {
 	setOriginCenter();
 }
 
-sf::Vector2f DrawableObject::getPosition() const
+sf::Vector2f DrawableObject::getPosition()
 {
-	return m_personalAnimationManager.getPosition();
+	return m_personalAnimationManager.getPositionSprite();
 }
 
 void DrawableObject::setPosition(float x, float y)
 {
-	m_personalAnimationManager.setPosition(x, y);
+	m_personalAnimationManager.setPositionSprite(x, y);
 }
 
 void DrawableObject::setPosition(sf::Vector2f & position)
 {
-	m_personalAnimationManager.setPosition(position);
+	m_personalAnimationManager.setPositionSprite(position);
 }
 
 void DrawableObject::startRotationWithTime(float speedPerSecond, double time)
@@ -49,7 +49,7 @@ void DrawableObject::startTranslationWithTargetPoint(double time, sf::Vector2f c
 
 void DrawableObject::draw(sf::RenderWindow* window)
 {
-	m_personalAnimationManager.draw(window);
+	m_personalAnimationManager.drawSprite(window);
 }
 
 

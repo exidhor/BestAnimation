@@ -1,19 +1,20 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "DrawableObject.hpp"
+#include "TextureArray.hpp"
+#include "AnimationPerTextureArray.hpp"
 
 // ---------------------------------------------------------------------------------------------------------------------------
 
 // WAITING : 
 
+// chargement des textures dans des managers "static"
+
 // ---------------------------------------------------------------------------------------------------------------------------
 
 // WAS DOING :
 
-// implementer le polymorphisme pour que les animPerFrame et celle avec les tiles soient facilement interchangeable
-// AnimationMapped -> type (classe abstraite) qui sera present dans l'AnimationManager
-// implementer les methodes polymorphes pour que le manager ne se preocupe pas du type de stockage
-// terminer et nettoyer les anciennes classes, voir supprimer les inutiles (#Animation)
+// regler le probleme de la 1ere frame trop longue par rapport aux autres
 
 // ---------------------------------------------------------------------------------------------------------------------------
 
@@ -75,39 +76,32 @@ int main()
 	timeLeft = clock.getElapsedTime().asSeconds();
 	std::cout << "Time left : " << timeLeft << std::endl;
 
+	std::vector <std::vector <sf::Texture*> > textures;
+	textures.push_back(std::vector <sf::Texture*>());
 	
-	sf::Texture* texture1 = new sf::Texture();
-	if (!texture1->loadFromFile("img/feu_1.png"))
+	textures[0].push_back(new sf::Texture());
+	if (!textures[0][0]->loadFromFile("img/feu_1.png"))
 	{
 		std::cerr << "Erreur lors du chargement de la 1ere texture" << std::endl;
 	}
-	Frame* frame1 = new Frame(texture1, 0.1);
 
-	sf::Texture* texture2 = new sf::Texture();
-	if (!texture2->loadFromFile("img/feu_2.png"))
+	textures[0].push_back(new sf::Texture());
+	if (!textures[0][1]->loadFromFile("img/feu_2.png"))
 	{
 		std::cerr << "Erreur lors du chargement de la 2eme texture" << std::endl;
 	}
-	Frame* frame2 = new Frame(texture2, 0.1);
 
-	sf::Texture* texture3 = new sf::Texture();
-	if (!texture3->loadFromFile("img/feu_3.png"))
+	textures[0].push_back(new sf::Texture());
+	if (!textures[0][2]->loadFromFile("img/feu_3.png"))
 	{
 		std::cerr << "Erreur lors du chargement de la 3eme texture" << std::endl;
 	}
-	Frame* frame3 = new Frame(texture3, 0.1);
+	
+	TextureArray *textureArray = new TextureArray(textures, 0.1);
+	
+	AnimationPerTextureArray* animationPerTextureArray = new AnimationPerTextureArray(textureArray);
 
-	std::vector <Frame*> frames;
-	frames.push_back(frame1);
-	frames.push_back(frame2);
-	frames.push_back(frame3);
-
-	AnimationPerFrame* animation = new AnimationPerFrame(frames);
-
-	std::vector <AnimationPerFrame*> animations;
-	animations.push_back(animation);
-
-	DrawableObject objectTest(animations);
+	DrawableObject objectTest(animationPerTextureArray);
 	objectTest.startAnimation();
 	objectTest.setRepeatAnimation(true);
 	objectTest.setPosition(100, 100);

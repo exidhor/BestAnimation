@@ -5,6 +5,8 @@
 #include <SFML/Window.hpp>
 #include <SFML/System/Time.hpp>
 #include <vector>
+#include "TimeAnim.hpp"
+#include "Animation.hpp"
 
 // CHECKED sauf le systeme des cles et donc des gestions des differentes
 // animations des differents etats
@@ -17,27 +19,29 @@ manipuler a l'aide d'une enum faite pour chaque element
 */
 class PersonalAnimationManager
 {
-protected: 
+private: 
 	sf::Sprite m_sprite;
+	TimeAnim m_timeAnim;
+	Animation* m_animation;
 	bool m_isStarted;
 	bool m_isRepeated;
-public:
-	PersonalAnimationManager();
-	
-	virtual void restart();
-	virtual void actualize(double time) = 0;
-	virtual void setStateAnimation(int key) = 0;
-	virtual sf::Texture* getCurrentTexture() = 0;
 
+public:
+	PersonalAnimationManager(Animation* animation);
+	
+	void restart();
+	void softRestart();
+	void actualize(double timeSpent);
 	void start();
 	void stop();
-	void draw(sf::RenderWindow* ptr_window);
+	void drawSprite(sf::RenderWindow* ptr_window);
 
+	void setStateAnimation(int key);
 	void setIsRepeated(bool state);
-	void setPosition(sf::Vector2f const& position);
-	void setPosition(float abs, float ord);
-	
-	sf::Vector2f getPosition();
+	void setPositionSprite(sf::Vector2f const& position);
+	void setPositionSprite(float abs, float ord);
+	void synchroTimeAnimWithFrame();
 
+	sf::Vector2f getPositionSprite();
 	sf::Sprite* getSprite();
 };

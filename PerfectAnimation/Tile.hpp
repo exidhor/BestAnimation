@@ -4,23 +4,19 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/System/Time.hpp>
+#include "TextureContainer.hpp"
 
-class Tile
+class Tile : public TextureContainer
 {
 private:
 	sf::Vector2f m_sizeOfOneTexture;
 	sf::Texture* m_tile;
-	std::vector <std::vector <double> > m_timeDisplay;
-	sf::Vector2i m_indexCurrentTextureRect; // x -> abs, y -> ord
+	sf::Vector2i m_numberOfTextures;
+
 public:
-	Tile(unsigned int numberFramePerLine, unsigned int numberFramePerCulumn,
-		sf::Texture* tile, std::vector <std::vector <double> > timeDisplay);
+	Tile(sf::Texture* tile, double timePerFrame, sf::Vector2i numberOfTextures);
 
-	bool goToTheNextFrame();
-	void goToTheLine(unsigned int indexLine);
-
-	sf::Texture* getTextureTile();
-	sf::IntRect getTextureRect();
-	sf::IntRect getTextureRect(sf::Vector2i coord);
-	std::vector <std::vector <double> > getTime();
+	sf::Vector2f getSizeOfOneTexture();
+	sf::Vector2i getNumberOfTexures();
+	sf::Texture* getPtrTexture();
 };

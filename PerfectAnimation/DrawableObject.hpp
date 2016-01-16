@@ -20,9 +20,9 @@ private:
 	sf::Sprite* getSprite();
 
 public:
-	DrawableObject(std::vector <AnimationPerFrame*> animations);
+	DrawableObject(Animation *animation);
 
-	sf::Vector2f getPosition() const;
+	sf::Vector2f getPosition();
 
 	void setPosition(float x, float y);
 	void setPosition(sf::Vector2f & position);

@@ -22,20 +22,20 @@
     <Filter Include="Fichiers sources\StockageImage">
       <UniqueIdentifier>{0b5454e9-e643-4963-9eec-cf5179bc4b33}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête\Stockage">
-      <UniqueIdentifier>{67e99333-922c-4af1-9d51-5ffc381ab813}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Fichiers d%27en-tête\Animations">
       <UniqueIdentifier>{04ed0cb4-1389-48fd-bfa1-4cffca1ede75}</UniqueIdentifier>
     </Filter>
     <Filter Include="Fichiers sources\Animations">
       <UniqueIdentifier>{ee857eab-e223-4a77-9cf7-aa785d903702}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête\Conteneur">
-      <UniqueIdentifier>{0da392c6-dc79-4d56-a59c-051898d3c3dc}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Fichiers sources\Conteneur">
       <UniqueIdentifier>{213be331-d7b4-43d1-908e-78419c66ba04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Stockage Texture">
+      <UniqueIdentifier>{67e99333-922c-4af1-9d51-5ffc381ab813}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Conteneur Animation">
+      <UniqueIdentifier>{0da392c6-dc79-4d56-a59c-051898d3c3dc}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -60,20 +60,8 @@
     <ClCompile Include="LinearTransformation.cpp">
       <Filter>Fichiers sources\Transformation</Filter>
     </ClCompile>
-    <ClCompile Include="Frame.cpp">
-      <Filter>Fichiers sources\StockageImage</Filter>
-    </ClCompile>
     <ClCompile Include="Tile.cpp">
       <Filter>Fichiers sources\StockageImage</Filter>
-    </ClCompile>
-    <ClCompile Include="AnimationPerFrame.cpp">
-      <Filter>Fichiers sources\Animations</Filter>
-    </ClCompile>
-    <ClCompile Include="AnimationArray.cpp">
-      <Filter>Fichiers sources\Animations</Filter>
-    </ClCompile>
-    <ClCompile Include="AnimationMapped.cpp">
-      <Filter>Fichiers sources\Animations</Filter>
     </ClCompile>
     <ClCompile Include="PersonalAnimationManager.cpp">
       <Filter>Fichiers sources\Conteneur</Filter>
@@ -84,8 +72,17 @@
     <ClCompile Include="AnimationPerTile.cpp">
       <Filter>Fichiers sources\Animations</Filter>
     </ClCompile>
-    <ClCompile Include="FrameAnimationManager.cpp">
-      <Filter>Fichiers sources\Conteneur</Filter>
+    <ClCompile Include="TextureArray.cpp">
+      <Filter>Fichiers sources\StockageImage</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureContainer.cpp">
+      <Filter>Fichiers sources\StockageImage</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>Fichiers sources\Animations</Filter>
+    </ClCompile>
+    <ClCompile Include="AnimationPerTextureArray.cpp">
+      <Filter>Fichiers sources\Animations</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -110,38 +107,29 @@
     <ClInclude Include="TranslationTransformation.hpp">
       <Filter>Fichiers d%27en-tête\Transformation</Filter>
     </ClInclude>
-    <ClInclude Include="Frame.hpp">
-      <Filter>Fichiers d%27en-tête\Stockage</Filter>
-    </ClInclude>
     <ClInclude Include="Tile.hpp">
-      <Filter>Fichiers d%27en-tête\Stockage</Filter>
-    </ClInclude>
-    <ClInclude Include="AnimationMapped.hpp">
-      <Filter>Fichiers d%27en-tête\Animations</Filter>
-    </ClInclude>
-    <ClInclude Include="AnimationArray.hpp">
-      <Filter>Fichiers d%27en-tête\Animations</Filter>
-    </ClInclude>
-    <ClInclude Include="AnimationPerFrame.hpp">
-      <Filter>Fichiers d%27en-tête\Animations</Filter>
+      <Filter>Fichiers d%27en-tête\Stockage Texture</Filter>
     </ClInclude>
     <ClInclude Include="PersonalAnimationManager.hpp">
-      <Filter>Fichiers d%27en-tête\Conteneur</Filter>
+      <Filter>Fichiers d%27en-tête\Conteneur Animation</Filter>
     </ClInclude>
     <ClInclude Include="DrawableObject.hpp">
-      <Filter>Fichiers d%27en-tête\Conteneur</Filter>
-    </ClInclude>
-    <ClInclude Include="TokenActualizationSituation.hpp">
-      <Filter>Fichiers d%27en-tête\Animations</Filter>
+      <Filter>Fichiers d%27en-tête\Conteneur Animation</Filter>
     </ClInclude>
     <ClInclude Include="AnimationPerTile.hpp">
       <Filter>Fichiers d%27en-tête\Animations</Filter>
     </ClInclude>
-    <ClInclude Include="FrameAnimationManager.hpp">
-      <Filter>Fichiers d%27en-tête\Conteneur</Filter>
+    <ClInclude Include="TextureArray.hpp">
+      <Filter>Fichiers d%27en-tête\Stockage Texture</Filter>
     </ClInclude>
-    <ClInclude Include="TileAnimationManager.hpp">
-      <Filter>Fichiers d%27en-tête\Conteneur</Filter>
+    <ClInclude Include="TextureContainer.hpp">
+      <Filter>Fichiers d%27en-tête\Stockage Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.hpp">
+      <Filter>Fichiers d%27en-tête\Animations</Filter>
+    </ClInclude>
+    <ClInclude Include="AnimationPerTextureArray.hpp">
+      <Filter>Fichiers d%27en-tête\Animations</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,50 +1,37 @@
 #include "AnimationPerTile.hpp"
 
-AnimationPerTile::AnimationPerTile(sf::Sprite* spriteTarget, Tile* tile)
-	:AnimationMapped(spriteTarget),
-	m_timerAnim(getActualTime())
+AnimationPerTile::AnimationPerTile(Tile* tile)
+	: AnimationPerTile(NULL, tile)
+{
+	//void
+}
+
+AnimationPerTile::AnimationPerTile(sf::Sprite* targetSprite, Tile* tile)
+	: Animation(targetSprite)
 {
 	m_tile = tile;
-	m_spriteTarget->setTexture(*m_tile->getTextureTile());
-	setActualTexture();
-}
-
-void AnimationPerTile::restart()
-{
-	m_indexCurrentTextureRect.y = 0;
-	m_timerAnim.restart(getActualTime());
-	setActualTexture();
-}
-
-void AnimationPerTile::setTexture(int indexLine)
-{
-	m_indexCurrentTextureRect.y = indexLine;
-	restart();
 }
 
 void AnimationPerTile::setActualTexture()
 {
-	m_spriteTarget->setTextureRect(m_tile->getTextureRect(m_indexCurrentTextureRect));
+	m_targetSprite->setTextureRect(getCurrentTextureRect());
 }
 
-double AnimationPerTile::getTime(sf::Vector2i const& coord)
+unsigned int AnimationPerTile::getSizeCurrentLine()
 {
-	return m_tile->getTime()[coord.y][coord.x];
+	return m_tile->getNumberOfTexures().y;
 }
 
-double AnimationPerTile::getActualTime()
+sf::IntRect AnimationPerTile::getCurrentTextureRect()
 {
-	return getTime(m_indexCurrentTextureRect);
+	return sf::IntRect(
+		m_currentIndex.x * m_tile->getSizeOfOneTexture().x,
+		m_currentIndex.y * m_tile->getSizeOfOneTexture().y,
+		m_tile->getSizeOfOneTexture().x,
+		m_tile->getSizeOfOneTexture().y);
 }
 
-bool AnimationPerFrame::increaseIndice()
+double AnimationPerTile::getActualTimeFrame()
 {
-	m_indiceCurrentTexture++;
-	if (m_indiceCurrentTexture >= m_frames.size())
-	{
-		restart();
-		return true;
-	}
-	m_timerAnim.setTime(m_frames[m_indiceCurrentTexture]->getTimeDisplay());
-	return false;
+	return m_tile->getTimePerFrame();
 }

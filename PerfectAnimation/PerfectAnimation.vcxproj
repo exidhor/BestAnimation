@@ -70,40 +70,36 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AnimationPerFrame.cpp" />
-    <ClCompile Include="AnimationArray.cpp" />
-    <ClCompile Include="AnimationMapped.cpp" />
+    <ClCompile Include="Animation.cpp" />
+    <ClCompile Include="AnimationPerTextureArray.cpp" />
     <ClCompile Include="AnimationPerTile.cpp" />
     <ClCompile Include="DrawableObject.cpp" />
-    <ClCompile Include="Frame.cpp" />
-    <ClCompile Include="FrameAnimationManager.cpp" />
     <ClCompile Include="LinearTransformation.cpp" />
     <ClCompile Include="Main_test.cpp" />
     <ClCompile Include="PersonalAnimationManager.cpp" />
     <ClCompile Include="ResizeRectTransformation.cpp" />
     <ClCompile Include="RotationTransformation.cpp" />
+    <ClCompile Include="TextureArray.cpp" />
+    <ClCompile Include="TextureContainer.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TimeAnim.cpp" />
     <ClCompile Include="Transformaton.cpp" />
     <ClCompile Include="TranslationTransformation.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AnimationArray.hpp" />
-    <ClInclude Include="AnimationMapped.hpp" />
-    <ClInclude Include="AnimationPerFrame.hpp" />
+    <ClInclude Include="Animation.hpp" />
+    <ClInclude Include="AnimationPerTextureArray.hpp" />
     <ClInclude Include="AnimationPerTile.hpp" />
     <ClInclude Include="DrawableObject.hpp" />
-    <ClInclude Include="Frame.hpp" />
-    <ClInclude Include="FrameAnimationManager.hpp" />
     <ClInclude Include="LinearTransformation.hpp" />
     <ClInclude Include="PersonalAnimationManager.hpp" />
     <ClInclude Include="ResizeRectTransformation.hpp" />
     <ClInclude Include="RotationTransformation.hpp" />
+    <ClInclude Include="TextureArray.hpp" />
+    <ClInclude Include="TextureContainer.hpp" />
     <ClInclude Include="TextureLoader.hpp" />
     <ClInclude Include="Tile.hpp" />
-    <ClInclude Include="TileAnimationManager.hpp" />
     <ClInclude Include="TimeAnim.hpp" />
-    <ClInclude Include="TokenActualizationSituation.hpp" />
     <ClInclude Include="Transformation.hpp" />
     <ClInclude Include="TranslationTransformation.hpp" />
   </ItemGroup>

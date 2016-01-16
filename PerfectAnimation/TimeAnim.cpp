@@ -1,8 +1,8 @@
 #include "TimeAnim.hpp"
 
-TimeAnim::TimeAnim(double newtimeFullDisplay)
+TimeAnim::TimeAnim(double timeFullDisplay)
 {
-	m_timeFullDisplay = newtimeFullDisplay;
+	m_timeFullDisplay = timeFullDisplay;
 	m_timeLeft = m_timeFullDisplay;
 }
 
