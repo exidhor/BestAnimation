@@ -15,6 +15,7 @@ private:
 public:
 	AnimationPerTextureArray(TextureArray* textureArray);
 	AnimationPerTextureArray(sf::Sprite* targetSprite, TextureArray* textureArray);
+	AnimationPerTextureArray(std::vector <std::vector <sf::Texture*> > textures, double timePerFrame);
 
 	virtual void setActualTexture();
 

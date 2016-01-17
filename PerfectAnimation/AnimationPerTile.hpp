@@ -15,6 +15,7 @@ private:
 public:
 	AnimationPerTile(Tile* tile);
 	AnimationPerTile(sf::Sprite* targetSprite, Tile* tile);
+	AnimationPerTile(sf::Texture* tile);
 
 	virtual void setActualTexture();
 	

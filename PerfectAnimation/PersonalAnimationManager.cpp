@@ -40,7 +40,7 @@ void PersonalAnimationManager::actualize(double timeSpent)
 					restart();
 					m_isStarted = false;
 				}
-				
+				return;
 			}
 			m_timeAnim.softRestart();
 		}

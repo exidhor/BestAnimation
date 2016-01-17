@@ -8,13 +8,11 @@
 
 // WAITING : 
 
-// chargement des textures dans des managers "static"
-
 // ---------------------------------------------------------------------------------------------------------------------------
 
 // WAS DOING :
 
-// regler le probleme de la 1ere frame trop longue par rapport aux autres
+// chargement des textures dans des managers "static"
 
 // ---------------------------------------------------------------------------------------------------------------------------
 

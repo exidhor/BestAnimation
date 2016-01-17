@@ -12,6 +12,12 @@ AnimationPerTile::AnimationPerTile(sf::Sprite* targetSprite, Tile* tile)
 	m_tile = tile;
 }
 
+AnimationPerTile::AnimationPerTile(sf::Texture* tile, double timePerFrame, sf::Vector2i numberOfTextures)
+	: AnimationPerTile(NULL, new Tile(tile, timePerFrame, numberOfTextures))
+{
+	//void
+}
+
 void AnimationPerTile::setActualTexture()
 {
 	m_targetSprite->setTextureRect(getCurrentTextureRect());
